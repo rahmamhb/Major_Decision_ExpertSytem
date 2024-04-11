@@ -4,6 +4,13 @@ import { Link } from 'react-router-dom';
 const Result = ()=> {
 
   const [majors , setMajors] = useState(['law' , 'computer Science'])
+  useEffect(()=>{
+    fetchMajors()
+  },[])
+
+ const fetchMajors = ()=>{
+
+ }
   return (
     <div className='bg-back-pattern bg-no-repeat bg-cover flex justify-center text-xl h-[100vh]'>
       <div className=''></div>
