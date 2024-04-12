@@ -28,7 +28,7 @@ const Form3 = () => {
   return (
     <div className='bg-back-pattern bg-no-repeat bg-cover flex justify-center text-xl h-[100vh]'>
       <div className=''></div>
-      <div className='bg-landing-pattern bg-no-repeat w-[75vw] flex items-center justify-end'>
+      <div className='bg-form-pattern bg-no-repeat bg-contain w-[40vw] flex items-center justify-center'>
         <div className='flex flex-col gap-4 '>
           <p className='font-bold'>Enter Marks for Each Subject</p>
           {Object.entries(marks).map(([subject, mark]) => (
