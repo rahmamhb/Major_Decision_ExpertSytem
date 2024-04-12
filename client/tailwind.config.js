@@ -14,6 +14,7 @@ export default {
       backgroundImage: {
         "landing-pattern": "url('/src/assets/1Bg.png')",
         "result-pattern": "url('/src/assets/lastBg.png')",
+        "form-pattern": "url('/src/assets/formBg.png')",
         "back-pattern": "url('/src/assets/bigBg.png')",
       },
     },
