@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import RightArrow from '@mui/icons-material/ChevronRightRounded';
+import './inputs2.css'
 
 const Form2 = () => {
   const [personalityType, setPersonalityType] = useState('');
@@ -30,8 +31,9 @@ const Form2 = () => {
             </select>
           </div>
           <div>
-            <label>Job Outlook?</label>
-            <div>
+            <label className='job'>Job Outlook?</label>
+            <br />
+            <div className='yesno1'>
                 <input
                 type="radio"
                 id="yes"
@@ -41,7 +43,7 @@ const Form2 = () => {
                 />
                 <label htmlFor="yes">Yes</label>
             </div>
-            <div>
+            <div className='yesno2'>
                 <input
                 type="radio"
                 id="no"
@@ -58,8 +60,8 @@ const Form2 = () => {
               <span className='flex justify-center items-center bg-primaryPurple text-secondaryPurple rounded-full w-8 h-8 hover:opacity-90 '><RightArrow /></span>
             </Link>
           </div>
-          <p>Selected personality type: {personalityType}</p>
-          <p>Selected yes/no: {yesNoSelection}</p>
+          {/* <p>Selected personality type: {personalityType}</p>
+          <p>Selected yes/no: {yesNoSelection}</p> */}
         </div>
       </div>
     </div>

@@ -1,0 +1,15 @@
+.yesno1{
+    display: inline-block;
+    margin-right: 40px;
+}
+.yesno2{
+    display: inline-block;
+}
+
+.yesno1, .yesno2{
+    margin-top: 20px;
+}
+.job{
+    margin-top: 20px;
+}
+

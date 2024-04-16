@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import '../index.css';
 import RightArrow from '@mui/icons-material/ChevronRightRounded';
 import { Link } from 'react-router-dom';
-
+import './inputs1.css'
 const Form1 = () => {
   const [selectedOption, setSelectedOption] = useState('');
   const [selectedSkill, setSelectedSkill] = useState('');
@@ -20,8 +20,9 @@ const Form1 = () => {
     <div className=''></div>
     <div className='bg-form-pattern bg-no-repeat bg-contain w-[40vw] flex items-center justify-center'>
       <div className='flex flex-col gap-4 items-center justify-center'>
-          <p className='font-bold'>Hi Bassmala! Please fill the following form attentively 
-          <br></br>
+          <p className='font-bold HI'>Hi Bassmala! Please fill the following form 
+           <br></br>attentively 
+         
           to get accurate results!</p>
           <div>
             <label htmlFor="selectOption">Select an interest:</label>
@@ -42,12 +43,12 @@ const Form1 = () => {
           </div>
           <div>
             <label htmlFor="selectSkill">Select a skill:</label>
-            <select id="selectSkill" value={selectedSkill} onChange={handleSkillChange}>
+            <select id="selectSkill" value={selectedSkill} onChange={handleSkillChange} className='editinput'>
               <option value="">What skill do you have?</option>
               <option value="skill1">Public speaking</option>
               <option value="skill2">Critical thinking</option>
               <option value="skill3">Writing</option>
-              {/* Add more skills as needed */}
+            
             </select>
           </div>
           <div>
@@ -55,8 +56,8 @@ const Form1 = () => {
               <span className='flex justify-center items-center bg-primaryPurple text-secondaryPurple rounded-full w-8 h-8 hover:opacity-90 '><RightArrow /></span>
             </Link>
           </div>
-          <p>Selected option: {selectedOption}</p>
-          <p>Selected skill: {selectedSkill}</p>
+          {/* <p>Selected option: {selectedOption}</p>
+          <p>Selected skill: {selectedSkill}</p> */}
         </div>
       </div>
     </div>
