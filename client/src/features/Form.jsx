@@ -40,24 +40,25 @@ const Form = () => {
     setPage(page - 1);
   };
   const handleSubmit = async (e, formData) => {
-    handleData(formData)
-    console.log(data)
-    e.preventDefault()
+    handleData(formData);
+    console.log(formData);
+    e.preventDefault();
     try {
-        const response = await fetch ('http://127.0.0.1:8000/myapp/form/', {
+        const response = await fetch ('http://127.0.0.1:8000/api/form/', {
             method : 'POST',
             headers : {
                 'Content-Type' : 'application/json'
             }, 
-            body : JSON.stringify(data), 
-        })
+            body : JSON.stringify(formData), 
+        });
         if (!response.ok) { 
-            throw new Error ('network response was not ok')
+            throw new Error ('Network response was not ok');
         }
     } catch (error) {
-        console.log(error)
+        console.log(error);
     }
-  };
+};
+
 
   return (
     <div>

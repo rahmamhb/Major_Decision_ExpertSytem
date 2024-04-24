@@ -23,11 +23,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-$(y(&@a#s%c$gk_9i^z#217phpvhs_lzth))!0w&@n*d-(sp!6'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
-DEBUG = False
+
+
 
 
 # Application definition
@@ -74,6 +75,8 @@ REACT_MANIFEST_FILE = "asset-manifest.json"
 REACT_BUILD_COMMAND = "npm build"
 
 ROOT_URLCONF = 'api.urls'
+
+STATIC_URL = '/static/'
 
 TEMPLATES = [
     {

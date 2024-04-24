@@ -49,11 +49,10 @@ def form(request):
     kb.tell(expr(f'ChemistryGood({name}) & Science({name}) & Teamwork({name}) & Communication({name}) & Working_with_ppl({name}) & Society_serving({name}) & Yes({name}) ==> Psychology({name})'))
     kb.tell(expr(f'ChemistryGood({name}) & Science({name}) & Teamwork({name}) & Analytical_Thinking({name}) & Working_with_ppl({name}) & Society_serving({name}) & Yes({name}) ==> Psychology({name})'))
 
-    # CS
-    kb.tell(expr('PhysicsGood(Bassmala), Electronics(Bassmala), Critical_Thinking(Bassmala), Problem_solving(Bassmala), Working_alone(Bassmala), Flexibility(Bassmala), Yes(Bassmala) ==> CS(Bassmala)'))
-    kb.tell(expr('MathExcellent(Bassmala), PhysicsGood(Bassmala), Electronics(Bassmala), Critical_Thinking(Bassmala), Problem_solving(Bassmala), Working_alone(Bassmala), Flexibility(Bassmala), Yes(Bassmala) ==> CS(Bassmala)'))
-    kb.tell(expr('MathGood(Bassmala), PhysicsGood(Bassmala), Electronics(Bassmala), Critical_Thinking(Bassmala), Problem_solving(Bassmala), Working_alone(Bassmala), Flexibility(Bassmala), Yes(Bassmala) ==> CS(Bassmala)'))
-    kb.tell(expr('PhysicsGood(Bassmala), Programming(Bassmala), Critical_Thinking(Bassmala), Problem_solving(Bassmala), Working_alone(Bassmala), Flexibility(Bassmala), Yes(Bassmala) ==> CS(Bassmala)'))
+    kb.tell(expr(f'PhysicsGood(name) & Electronics(name) & Critical_Thinking(name) & Problem_solving(name) & Working_alone(name) & Flexibility(name) & Yes(name) ==> CS(name)'))
+    kb.tell(expr(f'MathExcellent(name) & PhysicsGood(name) & Electronics(name) & Critical_Thinking(name) & Problem_solving(name) & Working_alone(name) & Flexibility(name) & Yes(name) ==> CS(name)'))
+    kb.tell(expr(f'MathGood(name) & PhysicsGood(name) & Electronics(name) & Critical_Thinking(name) & Problem_solving(name) & Working_alone(name) & Flexibility(name) & Yes(name) ==> CS(name)'))
+    kb.tell(expr(f'PhysicsGood(name) & Programming(name) & Critical_Thinking(name) & Problem_solving(name) & Working_alone(name) & Flexibility(name) & Yes(name) ==> CS(name)'))
 
 
     if request.method == 'GET':
@@ -142,7 +141,8 @@ def formresult(agenda):
             memory[p] = True
         else:
             memory[p] = False
-         # Check if new rules can be activated
+            
+        # Check if new rules can be activated
         if memory.get(expr(f'EnglishExcellent({name})'), False) and memory.get(expr(f'Art({name})'), False) and \
            memory.get(expr(f'Entrepreneurship({name})'), False) and memory.get(expr(f'Mentoring({name})'), False) and \
            memory.get(expr(f'Teaching({name})'), False) and memory.get(expr(f'Expertize({name})'), False) and \
@@ -178,60 +178,6 @@ def formresult(agenda):
            memory.get(expr(f'Working_with_ppl({name})'), False) and memory.get(expr(f'Society_serving({name})'), False) and \
            memory.get(expr(f'Yes({name})'), False):
            agenda.append(expr(f'Law({name})'))
-
-        if memory.get(expr(f'EconomicsExcellent({name})'), False) and memory.get(expr(f'Entrepreneurship({name})'), False) and \
-           memory.get(expr(f'Marketing({name})'), False) and memory.get(expr(f'Team_work({name})'), False) and \
-           memory.get(expr(f'Working_alone({name})'), False) and memory.get(expr(f'Flexibility({name})'), False) and \
-           memory.get(expr(f'Yes({name})'), False):
-           agenda.append(expr(f'Business({name})'))
-
-        if memory.get(expr(f'EconomicsExcellent({name})'), False) and memory.get(expr(f'Entrepreneurship({name})'), False) and \
-           memory.get(expr(f'Marketing({name})'), False) and memory.get(expr(f'Critical_Thinking({name})'), False) and \
-           memory.get(expr(f'Working_alone({name})'), False) and memory.get(expr(f'Flexibility({name})'), False) and \
-           memory.get(expr(f'Yes({name})'), False):
-           agenda.append(expr(f'Business({name})'))
-
-        if memory.get(expr(f'EconomicsExcellent({name})'), False) and memory.get(expr(f'Entrepreneurship({name})'), False) and \
-           memory.get(expr(f'Marketing({name})'), False) and memory.get(expr(f'Mentorship({name})'), False) and \
-           memory.get(expr(f'Working_alone({name})'), False) and memory.get(expr(f'Flexibility({name})'), False) and \
-           memory.get(expr(f'Yes({name})'), False):
-           agenda.append(expr(f'Business({name})'))
-
-        if memory.get(expr(f'AccountingExcellent({name})'), False) and memory.get(expr(f'Entrepreneurship({name})'), False) and \
-           memory.get(expr(f'Marketing({name})'), False) and memory.get(expr(f'Team_work({name})'), False) and \
-           memory.get(expr(f'Working_alone({name})'), False) and memory.get(expr(f'Flexibility({name})'), False) and \
-           memory.get(expr(f'Yes({name})'), False):
-           agenda.append(expr(f'Business({name})'))
-
-        if memory.get(expr(f'AccountingExcellent({name})'), False) and memory.get(expr(f'Entrepreneurship({name})'), False) and \
-        memory.get(expr(f'Marketing({name})'), False) and memory.get(expr(f'Critical_Thinking({name})'), False) and \
-        memory.get(expr(f'Working_alone({name})'), False) and memory.get(expr(f'Flexibility({name})'), False) and \
-        memory.get(expr(f'Yes({name})'), False):
-          agenda.append(expr(f'Business({name})'))
-
-        if memory.get(expr(f'AccountingExcellent({name})'), False) and memory.get(expr(f'Entrepreneurship({name})'), False) and \
-        memory.get(expr(f'Marketing({name})'), False) and memory.get(expr(f'Mentorship({name})'), False) and \
-        memory.get(expr(f'Working_alone({name})'), False) and memory.get(expr(f'Flexibility({name})'), False) and \
-        memory.get(expr(f'Yes({name})'), False):
-          agenda.append(expr(f'Business({name})'))
-
-        if memory.get(expr(f'MathGood({name})'), False) and memory.get(expr(f'Entrepreneurship({name})'), False) and \
-        memory.get(expr(f'Marketing({name})'), False) and memory.get(expr(f'Team_work({name})'), False) and \
-        memory.get(expr(f'Working_alone({name})'), False) and memory.get(expr(f'Flexibility({name})'), False) and \
-        memory.get(expr(f'Yes({name})'), False):
-           agenda.append(expr(f'Business({name})'))
-
-        if memory.get(expr(f'MathGood({name})'), False) and memory.get(expr(f'Entrepreneurship({name})'), False) and \
-        memory.get(expr(f'Marketing({name})'), False) and memory.get(expr(f'Critical_Thinking({name})'), False) and \
-        memory.get(expr(f'Working_alone({name})'), False) and memory.get(expr(f'Flexibility({name})'), False) and \
-        memory.get(expr(f'Yes({name})'), False):
-            agenda.append(expr(f'Business({name})'))
-
-        if memory.get(expr(f'MathGood({name})'), False) and memory.get(expr(f'Entrepreneurship({name})'), False) and \
-        memory.get(expr(f'Marketing({name})'), False) and memory.get(expr(f'Mentorship({name})'), False) and \
-        memory.get(expr(f'Working_alone({name})'), False) and memory.get(expr(f'Flexibility({name})'), False) and \
-        memory.get(expr(f'Yes({name})'), False):
-           agenda.append(expr(f'Business({name})'))
 
         if memory.get(expr(f'PhysicsExcellent({name})'), False) and memory.get(expr(f'Mentoring({name})'), False) and \
         memory.get(expr(f'Expertize({name})'), False) and memory.get(expr(f'Critical_Thinking({name})'), False) and \
@@ -329,3 +275,5 @@ def formresults(request):
             return JsonResponse({'result': "Sorry, the system cannot make a decision based on the given information."})
     else:
         return JsonResponse({'error': 'Invalid request method'})
+
+

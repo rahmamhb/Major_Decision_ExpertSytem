@@ -27,6 +27,7 @@ const Result = ()=> {
     fetch('http://127.0.0.1:8000/api/formresult')
       .then(res => res.json())
       .then(data => {
+        console.log(data)
         setMajors(data.majors)
       })
   }, [])
