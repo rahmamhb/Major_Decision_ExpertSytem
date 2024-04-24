@@ -1,18 +1,16 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
 import RightArrow from '@mui/icons-material/ChevronRightRounded';
-import './inputs2.css'
+import './inputs2.css';
 
-const Form2 = () => {
-  const [personalityType, setPersonalityType] = useState('');
-  const [yesNoSelection, setYesNoSelection] = useState('');
+const Form2 = ({ goNext, goBack }) => {
+  const [data, setData] = useState({
+    personalityType: '',
+    yesNoSelection: '',
+  });
 
-  const handlePersonalityChange = (event) => {
-    setPersonalityType(event.target.value);
-  };
-
-  const handleYesNoChange = (event) => {
-    setYesNoSelection(event.target.value);
+  const handleData = (event) => {
+    const { id, value } = event.target;
+    setData({ ...data, [id]: value });
   };
 
   return (
@@ -23,10 +21,11 @@ const Form2 = () => {
           <p className='font-bold'>Personality and Job Outlook</p>
           <div>
             <label htmlFor="selectPersonality">Select your personality type:</label>
-            <select id="selectPersonality" value={personalityType} onChange={handlePersonalityChange}>
-              <option value="">idk</option>
-              <option value="workingWithPeople">Working with People</option>
-              <option value="workingAlone">Working Alone</option>
+            <select id="personalityType" value={data.personalityType} onChange={handleData}>
+              <option value="">Select personality type</option>
+              <option value="Flexible">Flexible</option>
+              <option value="WorkingWithPeople">Working with People</option>
+              <option value="WorkingAlone">Working Alone</option>
               {/* Add more personality types as needed */}
             </select>
           </div>
@@ -34,34 +33,36 @@ const Form2 = () => {
             <label className='job'>Job Outlook?</label>
             <br />
             <div className='yesno1'>
-                <input
+              <input
                 type="radio"
-                id="yes"
+                id="yesNoSelection"
                 value="yes"
-                checked={yesNoSelection === "yes"}
-                onChange={handleYesNoChange}
-                />
-                <label htmlFor="yes">Yes</label>
+                checked={data.yesNoSelection === "yes"}
+                onChange={handleData}
+              />
+              <label htmlFor="yes">Yes</label>
             </div>
             <div className='yesno2'>
-                <input
+              <input
                 type="radio"
-                id="no"
+                id="yesNoSelection"
                 value="no"
-                checked={yesNoSelection === "no"}
-                onChange={handleYesNoChange}
-                />
-                <label htmlFor="no">No</label>
+                checked={data.yesNoSelection === "no"}
+                onChange={handleData}
+              />
+              <label htmlFor="no">No</label>
             </div>
-            </div>
-
-          <div>
+          </div>
+          <button onClick={() => goNext(data)}>
+            <span className='flex justify-center items-center bg-primaryPurple text-secondaryPurple rounded-full w-8 h-8 hover:opacity-90 '><RightArrow /></span>
+          </button>
+          {/*<div>
             <Link to='/form3'> 
               <span className='flex justify-center items-center bg-primaryPurple text-secondaryPurple rounded-full w-8 h-8 hover:opacity-90 '><RightArrow /></span>
             </Link>
           </div>
-          {/* <p>Selected personality type: {personalityType}</p>
-          <p>Selected yes/no: {yesNoSelection}</p> */}
+          <p>Selected personality type: {data.personalityType}</p>
+          <p>Selected yes/no: {data.yesNoSelection}</p> */}
         </div>
       </div>
     </div>

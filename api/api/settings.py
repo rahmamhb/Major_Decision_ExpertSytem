@@ -25,7 +25,9 @@ SECRET_KEY = 'django-insecure-$(y(&@a#s%c$gk_9i^z#217phpvhs_lzth))!0w&@n*d-(sp!6
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
+
+DEBUG = False
 
 
 # Application definition
@@ -40,7 +42,7 @@ INSTALLED_APPS = [
 
     'rest_framework',
     'corsheaders',
-    'myapi',
+    'myapp',
 ]
 
 MIDDLEWARE = [
@@ -58,6 +60,8 @@ MIDDLEWARE = [
 
 CORS_ORIGIN_ALLOW_ALL = True
 
+CORS_ALLOW_ALL_ORIGINS = True
+
 REACT_DEV_SERVER = 'http://localhost:3000/'
 REACT_DEV_MODE = True
 
@@ -68,6 +72,8 @@ REACT_PROJECT_DIRECTORY = "./client"
 REACT_MANIFEST_FILE = "asset-manifest.json"
 
 REACT_BUILD_COMMAND = "npm build"
+
+ROOT_URLCONF = 'api.urls'
 
 TEMPLATES = [
     {

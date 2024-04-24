@@ -1,8 +1,7 @@
-from aima3S.logic import FolKB, fol_bc_ask, expr
+from aima3.logic import FolKB, fol_bc_ask, expr
 
 def inference_engine(grades, level, interests, skill1, skill2, preferences, values, jobOutlook):
     
-
     Kb = FolKB()
 
     # Rules
@@ -68,8 +67,9 @@ def inference_engine(grades, level, interests, skill1, skill2, preferences, valu
     for major in majors:
         result = fol_bc_ask(Kb, expr(f'Decision({major} , {grades} , {level} , {interests} , {skill1} , {skill2} , {preferences} , {values} , {jobOutlook} )'))
         result = list(result)
+    print('Hello')
 
-        if (grades, level, interests, skill1, skill2, preferences, values, jobOutlook) in result:
+    if (grades, level, interests, skill1, skill2, preferences, values, jobOutlook) in result:
             rules = Kb.explain(expr(f'Decision({major} , {grades} , {level} , {interests} , {skill1} , {skill2} , {preferences} , {values} , {jobOutlook} )'))
             return f"{major}", rules
 

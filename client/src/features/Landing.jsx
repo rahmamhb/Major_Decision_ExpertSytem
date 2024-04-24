@@ -17,7 +17,7 @@ const Landing = ()=> {
               <p className='text-lg'>Before we delve into the questions, please enter your name:</p>
               <input type="text" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primaryPurple focus:border-primaryPurple block p-2.5 w-[400px] " value={name} onChange={(e)=>setName(e.target.value)} placeholder="your name" required />
             </span>
-            <Link to='/form1'> 
+            <Link to='/form'> 
               <span className='flex justify-center items-center bg-primaryPurple text-secondaryPurple rounded-full w-8 h-8 hover:opacity-90 '><RightArrow></RightArrow></span>
             </Link>
           </div>

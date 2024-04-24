@@ -1,8 +1,8 @@
 import { useState , useEffect} from 'react'
 import '../index.css'
 import { Link } from 'react-router-dom';
-const Result = ()=> {
 
+const Result = ()=> {
   const [majors , setMajors] = useState(['law' , 'teaching'])
   useEffect(()=>{
     fetchMajors()
@@ -22,6 +22,15 @@ const Result = ()=> {
     const paragraph = document.getElementById(`${major}-paragraph`);
     paragraph.style.display = 'none';
   };
+  
+  useEffect(() => {
+    fetch('http://127.0.0.1:8000/api/formresult')
+      .then(res => res.json())
+      .then(data => {
+        setMajors(data.majors)
+      })
+  }, [])
+
   return (
     <div className='bg-back-pattern bg-no-repeat bg-cover flex justify-center text-xl h-[100vh]'>
       <div className='bg-result-pattern bg-no-repeat bg-contain w-[40vw] flex items-center justify-center'>
