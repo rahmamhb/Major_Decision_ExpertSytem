@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import '../index.css';
+import { Link, useLocation } from 'react-router-dom';
 import RightArrow from '@mui/icons-material/ChevronRightRounded';
 import './inputs1.css';
 
